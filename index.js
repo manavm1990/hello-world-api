@@ -10,13 +10,11 @@ const router = require('./lib/router.js');
  * Process the returned spit.
  */
 const server = http.createServer((req, resp) => {
-  router.route(req, (statusCode, respPayload) => {
-    const verifiedStatusCode = typeof (statusCode) === 'number' ? statusCode : 200;
-
+  router.route(req, (statusCode = 200, respPayload = {}) => {
     // Convert payload to string
     const plString = JSON.stringify(respPayload);
 
-    resp.writeHead(verifiedStatusCode);
+    resp.writeHead(statusCode);
     resp.end(plString);
   });
 });
