@@ -1,19 +1,15 @@
 const http = require('http');
-const url = require('url');
 
 const port = 3000;
 
 const router = require('./lib/router.js');
 
+/**
+ * Start the server, and
+ * simply pass the request and response to 'router.'
+ */
 const server = http.createServer((req, resp) => {
-  // Parse the URL using the querystring module itself.
-  const parsedURL = url.parse(req.url, true);
-
-  const trimmedPath = parsedURL.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
-
-  const httpMethod = req.method.toLowerCase();
-
-  router.route(trimmedPath, httpMethod);
+  router.route(req, resp);
 });
 
 server.listen(port, () => {
