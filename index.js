@@ -1,25 +1,19 @@
 const http = require('http');
-
-// const host = '127.0.0.1';
-const port = 3000;
-
-// const handlers = req('./lib/handlers.js');
 const url = require('url');
 
-// Request router
-// const router = {
-//   hello: handlers.hello,
-// };
+const port = 3000;
+
+const router = require('./lib/router.js');
 
 const server = http.createServer((req, resp) => {
   // Parse the URL using the querystring module itself.
   const parsedURL = url.parse(req.url, true);
 
-  const trimmedPath = parsedURL.pathname.replace(/^\/+|\/+$/g, '');
+  const trimmedPath = parsedURL.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
 
-  const httpMethod = req.method.toUpperCase();
+  const httpMethod = req.method.toLowerCase();
 
-  console.log(trimmedPath, httpMethod);
+  router.route(trimmedPath, httpMethod);
 });
 
 server.listen(port, () => {
