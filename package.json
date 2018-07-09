@@ -1,0 +1,28 @@
+{
+  "name": "hello-world-api",
+  "version": "1.0.0",
+  "description": "RESTful JSON API demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manavm1990/hello-world-api.git"
+  },
+  "keywords": [
+    "NodeJS"
+  ],
+  "author": "Manav Misra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manavm1990/hello-world-api/issues"
+  },
+  "homepage": "https://github.com/manavm1990/hello-world-api#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0"
+  }
+}
